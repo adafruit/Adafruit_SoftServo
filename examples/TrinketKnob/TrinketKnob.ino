@@ -16,7 +16,7 @@
   As written, this is specifically for the Trinket although it should
   be Gemma or other boards (Arduino Uno, etc.) with proper pin mappings
  
-  Trinket:        USB+   Gnd   Pin #0  Pin #0  Pin #2 A1
+  Trinket:        USB+   Gnd   Pin #0  Pin #1  Pin #2 A1
   Connection:     Servo+  -   Servo1 Servo2   Potentiometer wiper
  
  *******************************************************************/
