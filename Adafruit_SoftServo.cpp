@@ -15,6 +15,8 @@ Adafruit_SoftServo::Adafruit_SoftServo(void) {
   isAttached = false;
   servoPin = 255;
   angle = 90;
+  rangeLo = 1000;
+  rangeHi = 2000;
 }
 
 void Adafruit_SoftServo::attach(uint8_t pin) {
@@ -37,11 +39,21 @@ void Adafruit_SoftServo::write(uint8_t a) {
   angle = a;
 
   if (! isAttached) return;
-  micros = map(a, 0, 180, 1000, 2000);  
+  micros = map(a, 0, 180, rangeLo, rangeHi);
 }
 
 void Adafruit_SoftServo::refresh(void) {
   digitalWrite(servoPin, HIGH);
   delayMicroseconds(micros);
   digitalWrite(servoPin, LOW);
+}
+
+void Adafruit_SoftServo::setRangeMin(uint16_t lo)
+{
+  rangeLo = constrain(lo, 256, 3000);
+}
+
+void Adafruit_SoftServo::setRangeMax(uint16_t hi)
+{
+  rangeHi = constrain(hi, 256, 3000);
 }

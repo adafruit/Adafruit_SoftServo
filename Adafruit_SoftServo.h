@@ -18,8 +18,12 @@ class Adafruit_SoftServo {
   boolean attached();
   void write(uint8_t a);
   void refresh(void);
+  void setRangeMin(uint16_t lo);
+  void setRangeMax(uint16_t hi);
  private:
   boolean isAttached;
   uint8_t servoPin, angle;
   uint16_t micros;
+  uint16_t rangeLo;
+  uint16_t rangeHi;
 };
