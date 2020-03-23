@@ -17,6 +17,8 @@ class Adafruit_SoftServo {
   void detach();
   boolean attached();
   void write(uint8_t a);
+  uint8_t read();
+  void writeMicroseconds(uint16_t m);
   void refresh(void);
  private:
   boolean isAttached;
