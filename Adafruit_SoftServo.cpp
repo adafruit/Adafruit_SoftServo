@@ -40,6 +40,16 @@ void Adafruit_SoftServo::write(uint8_t a) {
   micros = map(a, 0, 180, 1000, 2000);  
 }
 
+uint8_t Adafruit_SoftServo::read() {
+  if (! isAttached) return 0;
+  return angle;
+}
+
+void Adafruit_SoftServo::writeMicroseconds(uint16_t m) {
+  if (! isAttached) return;
+  micros = constrain(m, 0, 2000);
+}
+
 void Adafruit_SoftServo::refresh(void) {
   digitalWrite(servoPin, HIGH);
   delayMicroseconds(micros);
